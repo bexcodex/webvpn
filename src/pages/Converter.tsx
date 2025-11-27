@@ -80,10 +80,10 @@ const Converter: React.FC = () => {
                 if (p.type === 'vmess') entry += `    uuid: ${p.uuid}\n    alterId: ${p.alterId}\n    cipher: ${p.cipher}\n`;
                 else if (p.type === 'vless') entry += `    uuid: ${p.uuid}\n`;
                 else if (p.type === 'trojan') entry += `    password: ${p.password}\n`;
-                else if (p.type === 'ss') entry += `    cipher: ${p.cipher}\n    password: ${p.password}\n    plugin: v2ray-plugin\n    plugin-opts:\n      mode: websocket\n      tls: ${p.tls}\n      skip-cert-verify: true\n      host: ${p.wsHost}\n      path: "${p.wsPath}"\n      mux: false\n`;
+                else if (p.type === 'ss') entry += `    cipher: ${p.cipher}\n    password: ${p.password}\n    plugin: v2ray-plugin\n    plugin-opts:\n      mode: websocket\n      tls: ${p.tls}\n      skip-cert-verify: true\n      host: ${p.wsHost}\n      path: ${p.wsPath}\n      mux: false\n`;
 
                 if (p.type !== 'ss') {
-                    if (p.network === 'ws') entry += `    network: ws\n    ws-opts:\n      path: "${p.wsPath}"\n      headers:\n        Host: ${p.wsHost}\n`;
+                    if (p.network === 'ws') entry += `    network: ws\n    ws-opts:\n      path: ${p.wsPath}\n      headers:\n        Host: ${p.wsHost}\n`;
                     else if (p.network === 'grpc') entry += `    network: grpc\n    grpc-opts:\n      grpc-service-name: "${p.serviceName}"\n`;
                 }
                 c += entry;
